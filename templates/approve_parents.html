@@ -1,0 +1,46 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'admin_home.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="1267" border="1" align="center">
+    <tr>
+      <td width="41"><div align="center">ID</div></td>
+      <td width="108"><div align="center">NAME</div></td>
+      <td width="144"><div align="center">GENDER</div></td>
+      <td width="79"><div align="center">DOB</div></td>
+      <td width="161"><div align="center">ADDRESS</div></td>
+      <td width="93"><div align="center">POST</div></td>
+      <td width="63"><div align="center">PIN</div></td>
+      <td width="278"><div align="center">PHONE NUMBER</div></td>
+      <td width="112"><div align="center">EMAIL</div></td>
+      <td colspan="2"><div align="center">ACTION</div></td>
+    </tr>
+     {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.id}}</td>
+      <td>&nbsp;{{ i.name}}</td>
+      <td>&nbsp;{{ i.gender}}</td>
+      <td>&nbsp;{{ i.dob}}</td>
+      <td>&nbsp;{{ i.address}}</td>
+      <td>&nbsp;{{ i.post}}</td>
+      <td>&nbsp;{{ i.pin}}</td>
+      <td>&nbsp;{{ i.phone_number}}</td>
+      <td>&nbsp;{{ i.email}}</td>
+      <td width="124">
+        <div align="center"><a href="{% url 'apr' id=i.pt_id.id %}">Approve</a></div></td>
+      <td width="124"><div align="center"><a href="{% url 'rej_p' id=i.pt_id.id %}">Reject</a></div></td>
+    </tr>
+     {% endfor %}
+  </table>
+</form>
+</body>
+    {% endblock %}
+
+<!--</html>-->

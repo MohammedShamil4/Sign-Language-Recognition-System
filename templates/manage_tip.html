@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+{% extends 'staff_home.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="ad_t">
+  <table width="966" border="1" align="center">
+    <tr>
+      <td height="63" colspan="4"><div align="center">ADD AND MANAGE TIPS </div></td>
+      <td width="200"><div align="center">
+          <input name="ADD" type="submit" id="ADD" value="ADD " />
+      </div></td>
+    </tr>
+    <tr>
+      <td width="183"><div align="center">No. </div></td>
+      <td width="183"><div align="center">TIP</div></td>
+      <td width="183"><div align="center">DATE</div></td>
+      <td colspan="2"><div align="center">MANAGE</div></td>
+    </tr>
+     {% for i in val %}
+    <tr>
+      <td height="56">&nbsp;{{ i.id}}</td>
+      <td>&nbsp;{{ i.tip}}</td>
+      <td>&nbsp;{{ i.date}}</td>
+      <td width="183"><div align="center">
+          <a href="">UPDATE</a>
+      </div></td>
+      <td><div align="center">
+          <a href="">REMOVE</a>
+      </div></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}
+
+<!--</html>-->

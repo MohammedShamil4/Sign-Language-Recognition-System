@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'up_st' %}">
+  <table width="577" border="1" align="center">
+    <tr>
+      <td width="181"><div align="center">NAME</div></td>
+      <td width="380"><div align="center">
+        <input type="text" name="textfield" value="{{val.name}}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">GENDER</div></td>
+      <td><label>
+        <div align="center">
+          <input name="radiobutton" type="radio" value="MALE"  {% if val.gender == 'MALE' %} checked {% endif %}/>
+          MALE 
+          <input name="radiobutton" type="radio" value="FEMALE" {% if val.gender == 'FEMALE' %} checked {% endif %}/>
+          FEMALE</div>
+      </label></td>
+    </tr>
+    <tr>
+      <td><div align="center">ADDRESS</div></td>
+      <td><div align="center">
+        <input type="text" name="textfield2" value="{{val.address}}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">POST</div></td>
+      <td><div align="center">
+        <input type="text" name="textfield3" value="{{val.post}}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">PIN</div></td>
+      <td><div align="center">
+        <input type="text" name="textfield4" value="{{val.pin}}"/>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">PHONE NUMBER </div></td>
+      <td><div align="center">
+        <input type="text" name="textfield5" value="{{val.phone_number}}" />
+      </div></td>
+    </tr>
+
+    <tr>
+      <td height="82" colspan="2"><label>
+        <div align="center">
+          <input name="REGISTER" type="submit" id="REGISTER" value="UPDATE" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

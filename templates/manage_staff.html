@@ -1,0 +1,53 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+{% extends 'admin_home.html' %}
+{% block body %}
+
+<body>
+
+<form id="form1" name="form1" method="post" action="st_reg">
+  <table width="1087" border="1" align="center">
+    <tr>
+      <td height="40" colspan="10"><label> </label>
+          <div align="right">
+            <input name="ADD STAFF" type="submit" id="ADD" value="ADD STAFF" />
+        </div></td>
+    </tr>
+    <tr>
+      <td width="33"><div align="center">ID</div></td>
+      <td width="87"><div align="center">NAME</div></td>
+      <td width="116"><div align="center">GENDER</div></td>
+      <td width="131"><div align="center">ADDRESS</div></td>
+      <td width="75"><div align="center">POST</div></td>
+      <td width="51"><div align="center">PIN</div></td>
+      <td width="234"><div align="center">PHONE NUMBER </div></td>
+      <td width="91"><div align="center">EMAIL</div></td>
+      <td colspan="2"><label> </label>
+          <div align="center">ACTION </div>
+        <label> </label>
+          <div align="left"></div></td>
+    </tr>
+    {% for i in val %}
+
+    <tr>
+      <td>&nbsp;{{ i.id}} </td>
+      <td>&nbsp;{{ i.name}} </td>
+      <td>&nbsp;{{ i.gender}} </td>
+      <td>&nbsp;{{ i.address}} </td>
+      <td>&nbsp;{{ i.post}} </td>
+      <td>&nbsp;{{ i.pin}}</td>
+      <td>&nbsp;{{ i.phone_number}}</td>
+      <td>&nbsp;{{ i.email}}</td>
+      <td width="93"><div align="center"><a href="{% url 'update_st' id=i.id %}">UPDATE</a></div></td>
+      <td width="112"><div align="center"><a href="{% url 'delete_st' id=i.st_id.id %}">REMOVE</a></div></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
