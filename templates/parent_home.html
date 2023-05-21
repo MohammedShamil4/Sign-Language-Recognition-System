@@ -1,0 +1,45 @@
+
+
+<html>
+  <head>
+      {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-      scale=1.0">
+    <title> sign language</title>
+    <link rel="stylesheet" href="{% static 'pt_hm/style.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+   </head>
+
+
+
+<body>
+  <nav>
+
+
+      <div class="menu">
+        <img src="../static/login/logo.png"  class="image" style="margin-left: -100px;">
+        <h1>Sign Language</h1>
+
+        <ul style="margin-left: 200px;">
+
+          <li><a href="{% url 'pts_hm' %}">Home</a></li>
+          <li><a href="{% url 'tip' %}">Tips</a></li>
+          <li><a href="{% url 'sm' %}">Study materials</a></li>
+          <li><a href="{% url 'class_w' %}">Work</a></li>
+          <li><a href="{% url 'v_fd' %}">Feedback</a></li>
+          <li><a href="{% url 'pc' %}">Chat</a></li>
+          <li><a href="{% url 'rt' %}">Review</a></li>
+          <li><a href="{% url 'logout' %}">log out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   {% block body %}
+
+    {% endblock %}
+
+
+</body>
+</html>
+

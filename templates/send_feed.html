@@ -23,12 +23,12 @@
   padding:10px;
 }
 </style>
-  <h1 class="heading"> <span>ADD</span> TIP </h1>
+  <h1 class="heading"> <span>send</span> feedback </h1>
 <section class="contact">
-<form id="form1" name="form1" method="post" action="tp">
+<form id="form1" name="form1" method="post" action="{% url 's_fd' %}">
   <table class="mytable">
     <tr>
-      <td width="57" height="44"><div align="center">TIP</div></td>
+      <td width="57" height="44"><div align="center">feedback</div></td>
       <td width="900"><div align="center">
         <input type="text" name="textfield"  class="box"/>
       </div></td>

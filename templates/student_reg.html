@@ -1,0 +1,75 @@
+
+<html>
+<head>
+
+<title>Untitled Document</title>
+</head>
+   {% load static %}
+<link rel="stylesheet" href="{% static 'login/reg.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+  <div class="content" style="margin-top: 30px;">
+    <img src="../static/login/logo.png">
+    <div class="text">Sign Language</div>
+<form id="form1" name="form1" method="post" action="insert_st">
+  <table width="500" border="0" align="center">
+
+      <!-- ----------------------------------- name--------------------- -->
+    <tr>
+      <td>
+        <div class="field" style="margin-left: 4px;">
+          <span class="fa fa-user" style="margin-left: 16px;"></span>
+        <input type="text" name="name" placeholder="name" style="align-content: center;" required pattern="[A-Z a-z.]{3,25}" title="name should be in the range of 3 - 25 characters "/>
+        </div></td>
+    </tr>
+    <!-- ---------------------------------------admission number----------------------------------------- -->
+    <tr>
+      <td><div class="field" style="margin-top: 20px;">
+        <span class="fa fa-map-marker" style="margin-left: 16px;"></span>
+        <input type="text" name="adm" placeholder="admission number" required  pattern="[A-Z a-z 0-9.]{5,25}" title="should be in the range of 5 - 25 characters "/>
+      </div></td>
+    </tr>
+<!-- ---------------------------------------------------division-------------------------------- -->
+   <tr>
+       <td>
+           <div class="field" style="margin-top: 20px;" >
+               <input type="text" class="field" placeholder="division" disabled>
+<!--                <span class="fa fa-map-marker" style="margin-left: 16px;"></span>&nbsp;-->
+                    <select class="field" name="select" style="width:100; border-radius:30px;margin-top:-1px; margin-left: 10px; background-color: #dde1e7; font-size:large;text-align:center;
+                    border-color:#dde1e7;">
+          <option value="1">1st std</option>
+          <option value="2">2nd std</option>
+          <option value="3">3rd std</option>
+          <option value="4">4th std</option>
+          <option value="5">5th std</option>
+          <option value="6">6th std</option>
+          <option value="7">7th std</option>
+          <option value="8">8th std</option>
+          <option value="9">9th std</option>
+         <option value="10">10th std</option>
+          <option value="11">11th std</option>
+          <option value="12">12th std</option>
+      </select>
+           </div>
+       </td>
+   </tr>
+
+
+    <!-- -----------------------------------------end------------------------------- -->
+    <tr>
+      <td colspan="2"><div  style="margin-top: 20px;margin-left: 20px; align-items: center;">
+        <button>
+        Register</button>
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div  style="margin-top: 20px;margin-left: 20px; text-align: center;">
+       <a href="/">Back to home page</a>
+
+      </div></td>
+    </tr>
+  </table>
+</form>
+  </div>
+</body>
+</html>

@@ -24,23 +24,22 @@
       padding:10px;
     }
     </style>
-    <h1 class="heading"> <span>UPLOAD</span> MATERIALS </h1>
+    <h1 class="heading"> <span>UPDATE</span> CLASS WORK </h1>
 <section class="contact">
 
 
-<form id="form1" name="form1" method="post" action="up_s" enctype="multipart/form-data">
+<form id="form1" name="form1" method="post" action="{% url 'updt_cw' %}" enctype="multipart/form-data">
   <table class="mytable">
+
     <tr>
-      <td width="178">MATERIALS</td>
-      <td width="170"><input type="file" name="file" REQUIRED/></td>
-    </tr>
-    <tr>
-      <td> DESCRIPTION </td>
-      <td><input type="text" name="textfield" class="box" required/></td>
+      <td>DESCRIPTION </td>
+      <td><input type="text" name="textfield" class="box" value="{{val.description}}"required/></td>
     </tr>
     <tr>
       <td>CLASS</td>
-      <td><select  name="textfield2" class="box"  required>
+      <td>
+        <select  name="textfield2" class="box"   required>
+            <option value="{{val.classes}}">{{val.classes}}</option>
           <option value="1">1st std</option>
           <option value="2">2nd std</option>
           <option value="3">3rd std</option>
@@ -54,24 +53,27 @@
           <option value="11">11th std</option>
           <option value="12">12th std</option>
       </select>&nbsp;&nbsp;
+
     </tr>
     <tr>
       <td>SUBJECT</td>
-      <td><select  name="textfield3" class="box" required>
+      <td>
+      <select  name="textfield3" class="box" required>
+          <option value="{{val.subject}}">{{val.subject}}</option>
           <option value="ENGLISH">ENGLISH</option>
           <option value="MALAYALAM">MALAYALAM</option>
           <option value="HINDI">HINDI</option>
           <option value="ARABIC">ARABIC</option>
-          <option value="MATHS">MATHS</option>
+           <option value="MATHS">MATHS</option>
           <option value="SOCIAL SCIENCE">SOCIAL SCIENCE</option>
           <option value="SCIENCE">SCIENCE</option>
           <option value="IT">IT</option>
           <option value="EVS">EVS</option>
-      </select>&nbsp;&nbsp;
+      </select>&nbsp;&nbsp;</td>
     </tr>
     <tr>
       <td height="56" colspan="2"><div align="center">
-        <input name="UPLOAD"  class="btn btn-outline-default" type="submit" id="UPLOAD" value="UPLOAD" />
+        <input name="UPLOAD"  class="btn btn-outline-default" type="submit" id="UPLOAD" value="UPDATE" />
       </div></td>
     </tr>
   </table>

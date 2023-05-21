@@ -1,0 +1,106 @@
+{% extends 'admin_home.html' %}
+{% block body %}
+
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.rating-wrapper {
+  align-self: center;
+  box-shadow: 7px 7px 25px rgba(198, 206, 237, 0.7), -7px -7px 35px rgba(255, 255, 255, 0.7), inset 0px 0px 4px rgba(255, 255, 255, 0.9), inset 7px 7px 15px rgba(198, 206, 237, 0.8);
+  border-radius: 5rem;
+  display: inline-flex;
+  direction: rtl !important;
+  padding: 0.1rem 0.5rem;
+  margin-left: auto;
+}
+.rating-wrapper label {
+  color: #E1E6F6;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 3rem;
+  padding: 1rem 0.6rem;
+  transition: color 0.5s;
+}
+.rating-wrapper svg {
+  -webkit-text-fill-color: transparent;
+  -webkit-filter: drop-shadow 4px 1px 6px #c6ceed;
+  filter: drop-shadow(5px 1px 3px #c6ceed);
+}
+.rating-wrapper input {
+  height: 10%;
+  width: 10%;
+}
+.rating-wrapper input {
+  display: none;
+}
+.rating-wrapper label:hover,
+.rating-wrapper label:hover ~ label,
+.rating-wrapper input:checked ~ label {
+  color: #34AC9E;
+}
+.rating-wrapper label:hover,
+.rating-wrapper label:hover ~ label,
+.rating-wrapper input:checked ~ label {
+  color: #edf243;
+}
+
+</style>
+<section class="contact">
+<h1 class="heading"> <span>VIEW </span> RATING AND REVIEW </h1>
+<form id="form1" name="form1" method="post" action="">
+  <table class="mytable">
+
+    <tr>
+    	<td>No.</td>
+        <td>STAFF NAME</td>
+        <td>REVIEW</td>
+        <td>RATING</td>
+        <td>PARENT NAME</td>
+
+
+    </tr>
+    {% for i in val %}
+
+    <tr>
+        <td>&nbsp;{{ i.id}} </td>
+        <td>&nbsp;{{ i.st_id.name}} </td>
+        <td>&nbsp;{{ i.review}} </td>
+      <td>
+                 {% if i.rating > "0" %} <span class="fa fa-star  checked" style="color:orange"></span>
+                    {% else %} <span class="fa fa-star  checked" style="black:orange"></span>
+                    {% endif %}
+                 {% if i.rating > "1" %} <span class="fa fa-star  checked" style="color:orange"></span>
+                    {% else %} <span class="fa fa-star  checked" style="black:orange"></span>
+                    {% endif %}
+                 {% if i.rating > "2" %} <span class="fa fa-star  checked" style="color:orange"></span>
+                    {% else %} <span class="fa fa-star  checked" style="black:orange"></span>
+                    {% endif %}
+                 {% if i.rating > "3" %} <span class="fa fa-star  checked" style="color:orange"></span>
+                    {% else %} <span class="fa fa-star  checked" style="black:orange"></span>
+                    {% endif %}
+                 {% if i.rating > "4" %} <span class="fa fa-star  checked" style="color:orange"></span>
+                    {% else %} <span class="fa fa-star  checked" style="black:orange"></span>
+                    {% endif %}
+      </td>
+
+      <td>&nbsp;{{ i.pt_id.name}} </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+</section>
+
+{% endblock %}

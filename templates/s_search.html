@@ -27,25 +27,21 @@
 <form id="form1" name="form1" method="post" action="">
   <table class="mytable" align="center">
     <tr>
-      <td>ID</td>
-        <td>NAME</td>
-        <td>GENDER</td>
-        <td>DOB</td>
-        <td>ADDRESS</td>
-        <td>POST</td>
-        <td>PHONE NUMBER</td>
-        <td>EMAIL</td>
+      <th>ID</th>
+        <th>NAME</th>
+        <th>PHONE NUMBER</th>
+        <th>EMAIL</th>
+        <th>ACTION</th>
     </tr>
     {% for i in val %}
   <tr>
-    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.id }}</td>
     <td>&nbsp;{{ i.name}}</td>
-    <td>&nbsp;{{ i.gender}}</td>
-    <td> {{ i.dob}}</td>
-    <td>&nbsp;{{ i.address}}</td>
-     <td>&nbsp;{{ i.post}}</td>
     <td>&nbsp;{{ i.phone_number}}</td>
     <td>&nbsp;{{ i.email}}</td>
+     <td><div align="center">
+          <a class="btn btn-outline-primary" href="{% url 'st_cc' id=i.pt_id.id %}"><img src="../static/icons/messages.png" height="30" width="30">&nbsp;Chat</a>
+      </div></td>
     </tr>
     {% endfor %}
     </table>

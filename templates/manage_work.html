@@ -1,37 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-  <table width="966" border="1" align="center">
+<!--<body>-->
+{% extends 'staff_home.html' %}
+{% block body %}
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+  <h1 class="heading"> <span>MANAGE</span> CLASS WORK </h1>
+<form id="form1" name="form1" method="post" action="up_w">
+  <table class="mytable">
     <tr>
-      <td height="63" colspan="4"><div align="center">CLASS WORK </div></td>
+      <td height="63" colspan="5"><div align="center"></div></td>
       <td width="200"><div align="center">
-          <input name="ADD" type="submit" id="ADD" value="ADD " />
+          <input name="ADD" type="submit" id="ADD" value="ADD " class="btn btn-outline-primary" />
       </div></td>
     </tr>
+
     <tr>
       <td width="183"><div align="center">No. </div></td>
       <td width="183"><div align="center">WORK</div></td>
+      <td width="183"><div align="center">DESCRIPTION</div></td>
       <td width="183"><div align="center">DATE</div></td>
       <td colspan="2"><div align="center">MANAGE</div></td>
     </tr>
+    {% for i in val %}
     <tr>
-      <td height="56">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td width="183"><div align="center">
-          <input name="UPDATE" type="submit" id="UPDATE" value="UPDATE" />
-      </div></td>
-      <td><div align="center">
-          <input name="REMOVE" type="submit" id="REMOVE" value="REMOVE" />
-      </div></td>
+      <td>&nbsp; {{forloop.counter}}</td>
+      <td>&nbsp;{{i.work}}</td>
+      <td>&nbsp; {{i.description}}</td>
+      <td>&nbsp;{{i.date}}</td>
+      <td width="183"><div align="center"><a class="btn btn-outline-primary" href="{% url 'update_cw' id=i.id %}">UPDATE</a></div></td>
+
+      <td><div align="center"><a class="btn btn-outline-danger" href="{% url 'dlt_work' id=i.id %}">REMOVE</a></div></td>
+
     </tr>
+    {% endfor %}
   </table>
 </form>
-</body>
-</html>
+  </section>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

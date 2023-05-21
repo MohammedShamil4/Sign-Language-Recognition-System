@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+{% extends 'admin_home.html' %}
+{% block body %}
+
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+    <h1 class="heading"> <span>Study</span> Materials </h1>
+<form id="form1" name="form1" method="post" action="ad_stm">
+  <table  class="mytable">
+   <tr><div align="center">
+      <td colspan="3">&nbsp; </td>
+      <td><select name="select" class="btn btn-outline-primary">
+           <option value="1" {% if s == "1" %} selected {% endif %}>1st std</option>
+  <option value="2"  {% if s == "2" %} selected {% endif %}>2nd std</option>
+  <option value="3"  {% if s == "3" %} selected {% endif %}>3rd std</option>
+  <option value="4"  {% if s == "4" %} selected {% endif %}>4th std</option>
+            <option value="5"  {% if s == "5" %} selected {% endif %}>5th std</option>
+            <option value="6"  {% if s == "6" %} selected {% endif %}>6th std</option>
+          <option value="7"  {% if s == "7" %} selected {% endif %}>7th std</option>
+          <option value="8"  {% if s == "8" %} selected {% endif %}>8th std</option>
+  <option value="9"  {% if s == "9" %} selected {% endif %}>9th std</option>
+  <option value="10"  {% if s == "10" %} selected {% endif %}>10th std</option>
+            <option value="11"  {% if s == "11" %} selected {% endif %}>11th std</option>
+            <option value="12"  {% if s == "12" %} selected {% endif %}>12th std</option>
+      </select>
+      <input type="submit"  class="btn btn-outline-primary" name="Submit" value="search" /></td>
+       </div>
+    </tr>
+    <tr>
+      <td width="63"><div align="center">No.</div></td>
+      <td width="248"><div align="center">STUDY MATERIALS </div></td>
+      <td width="278"><div align="center">SUBJECT</div></td>
+      <td width="257">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{i.materials}}</td>
+      <td>&nbsp;{{i.subject}}</td>
+      <td><label>
+        <div align="center"><a href="../media/{{i.materials}}" width="100" height="100" download="" class="btn btn-outline-primary">download</a></div>
+      </label></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</section>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

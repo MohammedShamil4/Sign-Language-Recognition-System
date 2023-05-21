@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+{% extends 'parent_home.html' %}
+{% block body %}
+
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+ <div id="resume" class="section-padding ">
+        <div class="container">
+<section class="contact">
+<form id="form1" name="form1" method="post" action="sr">
+  <table class="mytable" align="center">
+    <tr>
+      <td><div align="center">{% for i in val %}
+        <select name="select">
+          <option value="{{i.id}}">{{i.name}}</option>
+        </select>  {% endfor %}
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <select name="select2">
+          <option value="0.5">0.5</option>
+          <option value="1">1</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+          <option value="2.5">2.5</option>
+          <option value="3">3</option>
+          <option value="3.5">3.5</option>
+          <option value="4">4</option>
+          <option value="4.5">4.5</option>
+          <option value="5">5</option>
+        </select>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <input type="text" name="textfield" />
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <input type="submit" name="Submit" value="Submit" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</section>
+        </div>
+ </div>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

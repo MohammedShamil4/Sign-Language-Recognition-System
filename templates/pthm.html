@@ -1,0 +1,101 @@
+{% extends 'parent_home.html' %}
+{% block body %}
+ {% load static %}
+
+
+<style>
+ .card {
+  width: 20%;
+  height: 15%;
+  background-color: #eee;
+  text-align: center;
+  border: 10px solid #eee;
+  border-radius: 20px;
+  box-shadow: inset 5px 5px 10px #bbb, inset -5px -5px 10px #fff;
+  transition: 0.5s;
+}
+
+.card:hover {
+  height: 300px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  color: red;
+  font-size: 30px;
+  background-color: #eee;
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 8px 8px 10px #ddd, -8px -8px 10px #fff;
+}
+
+.content {
+  color: #999;
+  background-color: #eee;
+  padding: 10px;
+  margin: 5px 20px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 10px #ddd, -8px -8px 10px #fff;
+  transform: translateY(-80px) scale(0);
+  transition: all 0.5s;
+}
+
+.card:hover .content {
+  transform: translateY(0) scale(1)
+}
+
+.content h3 {
+  text-shadow: 2px 2px 0px #fff;
+}
+
+button {
+ width: 9em;
+ height: 3em;
+ border-radius: 30em;
+ font-size: 15px;
+ font-family: inherit;
+ border: none;
+ position: relative;
+ overflow: hidden;
+ z-index: 1;
+ box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+}
+
+button::before {
+ content: '';
+ width: 0;
+ height: 3em;
+ border-radius: 30em;
+ position: absolute;
+ top: 0;
+ left: 0;
+ background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+ transition: .5s ease;
+ display: block;
+ z-index: -1;
+}
+
+button:hover::before {
+ width: 9em;
+}
+</style>
+<img src="../static/icons/thanal_logo.png" height="150" width="300" style="margin-left:40%; margin-top:2%" >
+<form action="texts">
+<div class="card"  style=" margin-top: 2%; margin-left: 40%;">
+    <div class="icon"><img src="../static/icons/profile.png" height="50" width="50">
+    </div>
+
+    <div class="content">
+        <h3>text to gesture</h3>
+        <p></p>
+        <br>
+        <br>
+        <p><button> Start!</button></p>
+
+    </div>
+</div>
+    </form>
+{% endblock %}

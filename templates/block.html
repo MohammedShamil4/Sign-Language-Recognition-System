@@ -1,41 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'admin_home.html' %}
+{% block body %}
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-  <table width="1049" border="1" align="center">
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<h1 class="heading"> <span>block</span> or <span> unblock </span> user </h1>
+<section class="contact">
+<form id="form1" name="form1" method="post" action="ubs">
+  <table width="1049" border="1" align="center" class="mytable">
+    <tr><div align="center">
+      <td colspan="8">&nbsp<select name="select" class="btn btn-outline-primary">
+            <option value="parent" {% if s == "parent" %} selected {% endif %}>parent</option>
+            <option value="staff"  {% if s == "staff" %} selected {% endif %}>staff</option>
+
+      </select>
+      <input type="submit"  class="btn btn-outline-primary" name="Submit" value="search" /></td>
+       </div>
+    </tr>
     <tr>
       <td width="52"><div align="center">ID</div></td>
       <td width="135"><div align="center">NAME</div></td>
-      <td width="180"><div align="center">ROLE</div></td>
+
       <td width="99"><div align="center">ADDRESS</div></td>
       <td width="201"><div align="center">PHONE NUMBER</div></td>
       <td width="117"><div align="center">EMAIL</div></td>
       <td colspan="2"><div align="center">ACTION</div>        <div align="center"></div></td>
     </tr>
+    {% for i in val %}
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td width="79"><label>
-        <div align="center">
-          <input name="BLOCK" type="submit" id="BLOCK" value="BLOCK" />
-          </div>
-      </label></td>
-      <td width="134"><label>
-        <div align="center">
-          <input name="UNBLOCK" type="submit" id="UNBLOCK" value="UNBLOCK" />
-        </div>
-      </label></td>
-    </tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name}}</td>
+
+      <td>&nbsp;{{ i.address }}</td>
+      <td>&nbsp;{{ i.phone_number }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+     <td width="124">{% if s == "parent" %}
+         {%  if i.pt_id.type == 'parent' %}
+
+          <div align="center"><a class="btn btn-outline-success"  href="{% url 'block_parent' id=i.pt_id.id %}">BLOCK</a></div>
+        {% else %}
+        <div align="center"><a class="btn btn-outline-danger" href="{% url 'unblock_parent' id=i.pt_id.id %}">UNBLOCK</a></div>
+        {% endif %}
+        {% endif %}
+
+
+        {% if s == "staff" %}
+         {% if i.st_id.type == 'staff'  %}
+
+          <div align="center"><a class="btn btn-outline-success"  href="{% url 'block_staff' id=i.st_id.id %}">BLOCK</a></div>
+        {% else %}
+        <div align="center"><a class="btn btn-outline-danger" href="{% url 'unblock_staff' id=i.st_id.id %}">UNBLOCK</a></div>
+        {% endif %}
+        {% endif %}
+     </td>
+      </tr>
+        {% endfor %}
   </table>
 </form>
-</body>
-</html>
+
+
+  </section>
+{% endblock %}

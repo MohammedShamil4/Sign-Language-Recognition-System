@@ -6,40 +6,36 @@
 <!--</head>-->
 
 <!--<body>-->
-
 {% extends 'staff_home.html' %}
 {% block body %}
-
 <style>
-    .mytable {
-      border-collapse: collapse;
-      border: 1px solid #ccc;
-    }
-    .mytable td{
-      border: 1px solid #ccc;
-      padding:10px;
-    }
-    .mytable th{
-      border: 1px solid #ccc;
-      padding:10px;
-    }
-    </style>
-    <h1 class="heading"> <span>UPLOAD</span> MATERIALS </h1>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
 <section class="contact">
-
-
-<form id="form1" name="form1" method="post" action="up_s" enctype="multipart/form-data">
+ <h1 class="heading"> <span>UPLOAD</span> work </h1>
+<form id="form1" name="form1" method="post" action="up_cw" enctype="multipart/form-data">
   <table class="mytable">
     <tr>
-      <td width="178">MATERIALS</td>
-      <td width="170"><input type="file" name="file" REQUIRED/></td>
+      <td width="178"><img src="../static/icons/folder.png" height="50" width="50">&nbsp;Work</td>
+      <td width="137"><input type="file" name="file" /></td>
     </tr>
     <tr>
-      <td> DESCRIPTION </td>
-      <td><input type="text" name="textfield" class="box" required/></td>
+      <td><img src="../static/icons/description.png" height="50" width="50">&nbsp;Description </td>
+      <td><input type="text" name="textfield" class="box"/></td>
     </tr>
-    <tr>
-      <td>CLASS</td>
+      <tr>
+     <td>CLASS</td>
       <td><select  name="textfield2" class="box"  required>
           <option value="1">1st std</option>
           <option value="2">2nd std</option>
@@ -71,13 +67,12 @@
     </tr>
     <tr>
       <td height="56" colspan="2"><div align="center">
-        <input name="UPLOAD"  class="btn btn-outline-default" type="submit" id="UPLOAD" value="UPLOAD" />
+        <input name="UPLOAD" type="submit" id="UPLOAD"  class="btn btn-outline-default" value="UPLOAD" />
       </div></td>
     </tr>
   </table>
 </form>
-
-  </section>
-{% endblock %}
+  {% endblock %}
+</section>
 <!--</body>-->
 <!--</html>-->

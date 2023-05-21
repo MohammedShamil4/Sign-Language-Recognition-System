@@ -1,0 +1,126 @@
+
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanal karuna school kuttiyadi</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<!-- header section ends -->
+
+<!-- theme toggler  -->
+<div style="text-align: right; margin-right: 1%;">
+<a class="btn btn-outline-primary" href="{% url 'main' %}">HOME</a>&nbsp;&nbsp;
+<a class="btn btn-outline-primary" href="{% url 'logins' %}">SIGN-IN</a>&nbsp;&nbsp;
+
+</div>
+
+<!-- home section starts  -->
+
+<section class="home" id="home" style="margin-top: -10%;">
+
+    <div class="content">
+        <h3>Thanal karuna school </h3>
+    </div>
+
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-youtube"></a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about" style="margin-top: -10%;">
+
+    <div class="row">
+        <div class="content">
+          <font style="color:blue"><h3>Thanal Karuna<span> School</span></h3></font>
+            <p>School for differently abled and research institute   </p>
+            <p>We believe that development is person-centric and for that, we have to transform human lives through education. This requires advocating for a school-based education system that promotes sustainable development and keeps humanity at the centre of human progress. We have schools, multi-disciplinary therapeutic centres, and academic institutions for disabled children aimed at the general public’s welfare. We ensure that the right to universalisation of compulsory and free education is received by all aspiring children.</p>
+            <a href="{% url 'reg_pt' %}" class="btn">Enroll now</a>
+        </div>
+
+    </div>
+   
+</section>
+
+<!-- about section ends -->
+
+<!-- services section starts  -->
+
+<!-- services section ends -->
+
+<!-- portfolio section starts  -->
+
+<section class="portfolio" id="portfolio" style="margin-top: -20%;">
+
+    <h1 class="heading"> <span>Gallery</span> </h1>
+
+    <div class="box-container">
+
+
+        <div class="box">
+            <img src="../static/image/yu.jpg" alt="" width="150" height="350">
+
+        </div>
+
+        <div class="box">
+            <img src="../static/image/cel1.jpg" alt="" width="150" height="350">
+
+        </div>
+
+        <div class="box">
+            <img src="../static/image/cel2.jpg" alt="" width="150" height="350">
+
+        </div>
+        <div class="box">
+            <video width="100%" height="100%" controls>
+  <source src="../static/image/cel3.mp4" type="video/mp4">
+      </video>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- portfolio section ends -->
+
+<!-- contact section starts -->
+
+<!-- contact section ends -->
+
+<div class="credits"> By <span>Thanal Karuna School</span> | all rights reserved </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

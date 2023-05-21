@@ -7,15 +7,29 @@
 
 {% extends 'staff_home.html' %}
 {% block body %}
-
-<body>
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+  <h1 class="heading"> <span>MANAGE</span> TIPS </h1>
 <form id="form1" name="form1" method="post" action="ad_t">
-  <table width="966" border="1" align="center">
+  <table class="mytable" align="center">
     <tr>
-      <td height="63" colspan="4"><div align="center">ADD AND MANAGE TIPS </div></td>
-      <td width="200"><div align="center">
-          <input name="ADD" type="submit" id="ADD" value="ADD " />
-      </div></td>
+      <th height="63" colspan="4"><div align="center"></div></th>
+      <th width="200"><div align="center">
+          <input name="ADD" type="submit" class="btn btn-outline-default" id="ADD" value="ADD " />
+      </div></th>
     </tr>
     <tr>
       <td width="183"><div align="center">No. </div></td>
@@ -25,20 +39,20 @@
     </tr>
      {% for i in val %}
     <tr>
-      <td height="56">&nbsp;{{ i.id}}</td>
+      <td height="56">&nbsp;{{ forloop.counter }}</td>
       <td>&nbsp;{{ i.tip}}</td>
       <td>&nbsp;{{ i.date}}</td>
       <td width="183"><div align="center">
-          <a href="">UPDATE</a>
+          <a class="btn btn-outline-primary" href="{% url 'update_tp' id=i.id %}">UPDATE</a>
       </div></td>
       <td><div align="center">
-          <a href="">REMOVE</a>
+          <a class="btn btn-outline-danger" href="{% url 'delete_tip' id=i.id %}">REMOVE</a>
       </div></td>
     </tr>
     {% endfor %}
   </table>
 </form>
-</body>
+</section>
 
 {% endblock %}
 

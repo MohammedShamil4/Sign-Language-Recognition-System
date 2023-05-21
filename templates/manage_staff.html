@@ -8,29 +8,40 @@
 {% extends 'admin_home.html' %}
 {% block body %}
 
-<body>
-
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+<h1 class="heading"> <span>Manage</span> Staff </h1>
 <form id="form1" name="form1" method="post" action="st_reg">
-  <table width="1087" border="1" align="center">
+  <table class="mytable">
     <tr>
       <td height="40" colspan="10"><label> </label>
           <div align="right">
-            <input name="ADD STAFF" type="submit" id="ADD" value="ADD STAFF" />
+            <input name="ADD STAFF" type="submit" class="btn btn-outline-default" id="ADD" value="ADD STAFF" />
         </div></td>
     </tr>
     <tr>
-      <td width="33"><div align="center">ID</div></td>
-      <td width="87"><div align="center">NAME</div></td>
-      <td width="116"><div align="center">GENDER</div></td>
-      <td width="131"><div align="center">ADDRESS</div></td>
-      <td width="75"><div align="center">POST</div></td>
-      <td width="51"><div align="center">PIN</div></td>
-      <td width="234"><div align="center">PHONE NUMBER </div></td>
-      <td width="91"><div align="center">EMAIL</div></td>
-      <td colspan="2"><label> </label>
-          <div align="center">ACTION </div>
-        <label> </label>
-          <div align="left"></div></td>
+    	<td>ID</td>
+        <td>NAME</td>
+        <td>GENDER</td>
+        <td>ADDRESS</td>
+        <td>IMAGE</td>
+        <td>QUALIFICATION</td>
+        <td>PHONE NUMBER</td>
+        <td>EMAIL</td>
+        <td colspan="2">ACTION</td>
     </tr>
     {% for i in val %}
 
@@ -39,15 +50,15 @@
       <td>&nbsp;{{ i.name}} </td>
       <td>&nbsp;{{ i.gender}} </td>
       <td>&nbsp;{{ i.address}} </td>
-      <td>&nbsp;{{ i.post}} </td>
-      <td>&nbsp;{{ i.pin}}</td>
+        <td>&nbsp;<img src="{{ i.image.url}}" width="100" height="100"></td>
+      <td>&nbsp;{{ i.qualification}} </td>
       <td>&nbsp;{{ i.phone_number}}</td>
       <td>&nbsp;{{ i.email}}</td>
-      <td width="93"><div align="center"><a href="{% url 'update_st' id=i.id %}">UPDATE</a></div></td>
-      <td width="112"><div align="center"><a href="{% url 'delete_st' id=i.st_id.id %}">REMOVE</a></div></td>
+      <td width="93"><div align="center"><a class="btn btn-outline-primary" href="{% url 'update_st' id=i.id %}">UPDATE</a></div></td>
+      <td width="112"><div align="center"><a class="btn btn-outline-danger" href="{% url 'delete_st' id=i.st_id.id %}">REMOVE</a></div></td>
     </tr>
     {% endfor %}
   </table>
 </form>
-</body>
+</section>
 {% endblock %}

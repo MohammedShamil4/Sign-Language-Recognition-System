@@ -1,75 +1,104 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
 <title>Untitled Document</title>
 </head>
-
+   {% load static %}
+<link rel="stylesheet" href="{% static 'login/reg.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
+  <div class="content" style="margin-top: 60px; margin-bottom: 20px;">
+    <img src="../static/login/logo.png">
+    <div class="text">Sign Language</div>
+      <center>Parent registration form</center>
+      <br>
 <form id="form1" name="form1" method="post" action="reg_p">
-  <table width="441" border="1" align="center">
+  <table width="500" border="0" align="center">
     <tr>
-      <td width="176"><div align="center">NAME</div></td>
-      <td width="249"><div align="center">
-        <input type="text" name="textfield" />
+
+<!-- ----------------------------------- name--------------------- -->
+      <td>
+        <div class="field" style="margin-left: 4px;">
+          <span class="fa fa-user" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield" placeholder="name" style="align-content: center;" required pattern="[A-Z a-z.]{3,25}" title="name should be in the range of 3 - 25 characters "/>
+      </div></td>
+<!-- ------------------------------dob---------------------------------------- -->
+      <td ><div class="field" style="align-items: center; margin-left: 15%;">
+        <span class="fa fa-birthday-cake" style="margin-left: 16px;"></span>
+        <input type="date" name="textfield2" style="align-content: center;" max="2001-12-31" min="1970-01-01" required/>
+      </div></td>
+    </tr>
+<!-- -------------------------------- radiobutton---------------------------------- -->
+    <tr>
+      <td><div style="margin-top: 20px;">
+        <label>Gender : </label>
+        <input name="radiobutton" type="radio" value="MALE"  required/>Male
+
+        <input name="radiobutton" type="radio" value="FEMALE" />Female
+      </div></td>
+
+      <!-- ----------------------------------address---------------------------------- -->
+
+      <td><div class="field" style="align-items: center; margin-left: 15%;margin-top: 20px;">
+        <span class="fa fa-address-book-o" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield3" placeholder="Address" required pattern="[A-Z a-z.]{5,25}" title="address should be in the range of 5 - 25 characters "/>
+      </div></td>
+    </tr>
+
+    <!-- ---------------------------------------post----------------------------------------- -->
+    <tr>
+      <td><div class="field" style="margin-top: 20px;">
+        <span class="fa fa-map-marker" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield4" placeholder="Post" required  pattern="[A-Z a-z.]{3,25}" title="should be in the range of 5 - 25 characters "/>
+      </div></td>
+ <!-- -----------------------------------------------pin----------------------------------------- -->
+
+      <td><div class="field"  style="align-items: center; margin-left: 15%;margin-top: 20px;">
+        <span class="fa fa-map-pin" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield5" placeholder="Pin"  required pattern="[6789][0-9]{5}" title=" 6 digit number and should start with either 6,7,8,9 "/>
+      </div></td>
+    </tr>
+<!-- ---------------------------------------------------phone number field-------------------------------- -->
+    <tr>
+      <td><div class="field" style="margin-top: 20px;">
+        <span class="fa fa-phone" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield6" placeholder="phone number" required pattern="[6789][0-9]{9}" title="number should contain 10 digit and should start with 6,7,8,9"/>
+      </div></td>
+  <!-- ----------------------------------------text-------------------------------------- -->
+      <td><div class="field"  style="align-items: center; margin-left: 15%;margin-top: 20px;">
+        <span class="fa fa-question-circle" style="margin-left: 16px;"></span>
+        <input type="text" name="textfield9" placeholder="no. of disability child" required pattern="[0-9]{1}" title="enter correct value "//>
+      </div></td>
+    </tr>
+  <!-- -----------------------------------email----------------------------------------- -->
+    <tr>
+      <td><div class="field" style="margin-top: 20px;">
+        <span class="fa fa-envelope" style="margin-left: 16px;"></span>
+        <input type="email" name="textfield7" placeholder="Email"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" title="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </div></td>
+  <!-- ----------------------------------------password-------------------------------------- -->
+      <td><div class="field"  style="align-items: center; margin-left: 15%;margin-top: 20px;">
+        <span class="fa fa-key" style="margin-left: 16px;"></span>
+        <input type="password" name="textfield8" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required/>
+      </div></td>
+    </tr>
+    <!-- -----------------------------------------end------------------------------- -->
+    <tr>
+      <td colspan="2"><div  style="margin-top: 20px;margin-left: 20px; align-items: center;">
+        <button>
+        Register student</button>
       </div></td>
     </tr>
     <tr>
-      <td><div align="center">GENDER</div></td>
-      <td><div align="center">
-        <input name="radiobutton" type="radio" value="MALE" />
-        MALE
-        <input name="radiobutton" type="radio" value="FEMALE" />
-      FEMALE</div></td>
-    </tr>
-    <tr>
-      <td><div align="center">DOB</div></td>
-      <td><div align="center">
-        <input type="date" name="textfield2" />
-      </div></td>
-    </tr>
-    <tr>
-      <td><div align="center">ADDRESS</div></td>
-      <td><div align="center">
-        <input type="text" name="textfield3" />
-      </div></td>
-    </tr>
-    <tr>
-      <td><div align="center">POST</div></td>
-      <td><div align="center">
-        <input type="text" name="textfield4" />
-      </div></td>
-    </tr>
-    <tr>
-      <td><div align="center">PIN</div></td>
-      <td><div align="center">
-        <input type="text" name="textfield5" />
-      </div></td>
-    </tr>
-    <tr>
-      <td><div align="center">PHONE NUMBER </div></td>
-      <td><div align="center">
-        <input type="text" name="textfield6" />
-      </div></td>
-    </tr>
-    <tr>
-      <td><div align="center">EMAIL</div></td>
-      <td><div align="center">
-        <input type="text" name="textfield7" />
-      </div></td>
-    </tr>
-      <tr>
-      <td><div align="center">PASSWORD</div></td>
-      <td><div align="center">
-        <input type="text" name="textfield8" />
-      </div></td>
-    </tr>
-    <tr>
-      <td height="66" colspan="2"><div align="center">
-        <input name="REGISTER" type="submit" id="REGISTER" value="REGISTER" />
+      <td colspan="2"><div  style="margin-top: 20px;margin-left: 20px; text-align: center;">
+
+
       </div></td>
     </tr>
   </table>
 </form>
+  </div>
 </body>
 </html>

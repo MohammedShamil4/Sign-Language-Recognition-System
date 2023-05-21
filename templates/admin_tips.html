@@ -1,0 +1,47 @@
+{% extends 'admin_home.html' %}
+{% block body %}
+ {% load static %}
+
+ <!-- Resume -->
+<br>
+<br>
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+
+</style>
+<section class="contact">
+
+<h1 class="heading"> <span>VIEW</span> TIPS </h1>
+<br>
+ <form>
+{% for i in val %}
+<table class="mytable">
+
+    <tr class="box">
+      <td width="80">&nbsp;TIP : {{ forloop.counter }}</td>
+        <td width="100">&nbsp;<B>{{ i.st_id.name}}</B></td>
+      <td width="200">&nbsp;{{ i.date}}</td>
+        <td width="1000">{{ i.tip}}</td>
+    </tr>
+
+</table>
+     {% endfor %}
+    </form>
+</section>
+<br>
+<br>
+
+
+
+{% endblock %}

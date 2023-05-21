@@ -7,40 +7,63 @@
 {% extends 'admin_home.html' %}
 {% block body %}
 
-<body>
+
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+    <h1 class="heading"> <span>Approve</span> Parents </h1>
 <form id="form1" name="form1" method="post" action="">
-  <table width="1267" border="1" align="center">
-    <tr>
-      <td width="41"><div align="center">ID</div></td>
-      <td width="108"><div align="center">NAME</div></td>
-      <td width="144"><div align="center">GENDER</div></td>
-      <td width="79"><div align="center">DOB</div></td>
-      <td width="161"><div align="center">ADDRESS</div></td>
-      <td width="93"><div align="center">POST</div></td>
-      <td width="63"><div align="center">PIN</div></td>
-      <td width="278"><div align="center">PHONE NUMBER</div></td>
-      <td width="112"><div align="center">EMAIL</div></td>
-      <td colspan="2"><div align="center">ACTION</div></td>
+<table class="mytable" align="center">
+	<tr>
+    	<th>ID</th>
+        <th>NAME</th>
+        <th>GENDER</th>
+        <th>DOB</th>
+        <th>ADDRESS</th>
+        <th>POST</th>
+        <th>PIN</th>
+        <th>PHONE NUMBER</th>
+        <th>EMAIL</th>
+        <th colspan="2">ACTION</th>
     </tr>
-     {% for i in val %}
+    {% for i in val %}
+
     <tr>
-      <td>&nbsp;{{ i.id}}</td>
-      <td>&nbsp;{{ i.name}}</td>
-      <td>&nbsp;{{ i.gender}}</td>
-      <td>&nbsp;{{ i.dob}}</td>
-      <td>&nbsp;{{ i.address}}</td>
-      <td>&nbsp;{{ i.post}}</td>
-      <td>&nbsp;{{ i.pin}}</td>
-      <td>&nbsp;{{ i.phone_number}}</td>
-      <td>&nbsp;{{ i.email}}</td>
-      <td width="124">
-        <div align="center"><a href="{% url 'apr' id=i.pt_id.id %}">Approve</a></div></td>
-      <td width="124"><div align="center"><a href="{% url 'rej_p' id=i.pt_id.id %}">Reject</a></div></td>
-    </tr>
-     {% endfor %}
-  </table>
+        <td>&nbsp;{{ i.id}}</td>
+        <td>&nbsp;{{ i.name}}</td>
+        <td>&nbsp;{{ i.gender}}</td>
+        <td>&nbsp;{{ i.dob}}</td>
+        <td>&nbsp;{{ i.address}}</td>
+        <td>&nbsp;{{ i.post}}</td>
+        <td>&nbsp;{{ i.pin}}</td>
+        <td>&nbsp;{{ i.phone_number}}</td>
+        <td>&nbsp;{{ i.email}}</td>
+        <td width="124">{% if i.pt_id.type == 'pending' %}
+          <div align="center"><a class="btn btn-outline-success"  href="{% url 'apr' id=i.pt_id.id %}">Approve</a></div></td>
+        <td width="124"><div align="center"><a class="btn btn-outline-danger" href="{% url 'rej_p' id=i.pt_id.id %}">Reject</a></div></td>
+        {% elif i.pt_id.type == 'rejected' %}Rejected
+        {% else %}Accepted
+
+        {% endif%}
+      </tr>
+
+       {% endfor %}
+
+</table>
 </form>
-</body>
+</section>
     {% endblock %}
 
 <!--</html>-->

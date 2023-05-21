@@ -1,25 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
+{% extends 'admin_home.html' %}
+{% block body %}
+<style>
+.mytable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.mytable td{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+.mytable th{
+  border: 1px solid #ccc;
+  padding:10px;
+}
+</style>
+<section class="contact">
+<h1 class="heading"> <span>Update </span>profile  </h1>
 <form id="form1" name="form1" method="post" action="{% url 'up_st' %}">
-  <table width="577" border="1" align="center">
+  <table class="mytable">
     <tr>
       <td width="181"><div align="center">NAME</div></td>
       <td width="380"><div align="center">
-        <input type="text" name="textfield" value="{{val.name}}" />
+        <input type="text" name="textfield" value="{{val.name}}" class="box" required pattern="[A-Z a-z.]{3,25}" title="name should be in the range of 3 - 25 characters "/>
       </div></td>
     </tr>
     <tr>
       <td><div align="center">GENDER</div></td>
       <td><label>
-        <div align="center">
+        <div align="center" class="box" >
           <input name="radiobutton" type="radio" value="MALE"  {% if val.gender == 'MALE' %} checked {% endif %}/>
-          MALE 
+          MALE &nbsp;&nbsp;
           <input name="radiobutton" type="radio" value="FEMALE" {% if val.gender == 'FEMALE' %} checked {% endif %}/>
           FEMALE</div>
       </label></td>
@@ -27,36 +45,42 @@
     <tr>
       <td><div align="center">ADDRESS</div></td>
       <td><div align="center">
-        <input type="text" name="textfield2" value="{{val.address}}" />
+        <input type="text" name="textfield2" value="{{val.address}}"  class="box" required pattern="[A-Z a-z.]{5,25}" title="address should be in the range of 5 - 25 characters "/>
       </div></td>
     </tr>
     <tr>
       <td><div align="center">POST</div></td>
       <td><div align="center">
-        <input type="text" name="textfield3" value="{{val.post}}" />
+        <input type="text" name="textfield3" value="{{val.post}}" class="box" required  pattern="[A-Z a-z.]{3,25}" title="should be in the range of 3 - 25 characters " />
       </div></td>
     </tr>
     <tr>
       <td><div align="center">PIN</div></td>
       <td><div align="center">
-        <input type="text" name="textfield4" value="{{val.pin}}"/>
+        <input type="text" name="textfield4" value="{{val.pin}}" class="box" required pattern="[0-9]{6}" title=" 6 digit number "/>
       </div></td>
     </tr>
     <tr>
       <td><div align="center">PHONE NUMBER </div></td>
       <td><div align="center">
-        <input type="text" name="textfield5" value="{{val.phone_number}}" />
+        <input type="text" name="textfield5" value="{{val.phone_number}}"  class="box" required pattern="[6789][0-9]{9}" title="number should contain 10 digit and should start with 6,7,8,9"/>
       </div></td>
     </tr>
 
     <tr>
       <td height="82" colspan="2"><label>
         <div align="center">
-          <input name="REGISTER" type="submit" id="REGISTER" value="UPDATE" />
+          <input name="REGISTER" type="submit" id="REGISTER" value="UPDATE" class="btn btn-outline-default" />
           </div>
       </label></td>
     </tr>
   </table>
 </form>
-</body>
-</html>
+
+  </section>
+{% endblock %}
+
+
+
+<!--</body>-->
+<!--</html>-->

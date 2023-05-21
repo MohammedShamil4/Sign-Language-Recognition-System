@@ -1,0 +1,142 @@
+<!--<html>-->
+{% extends 'staff_home.html' %}
+{% block body %}
+<head>
+    <title>
+
+    </title>
+<style>
+
+.containern {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+}
+.containern1 {
+
+  background-color: #0000;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+     max-width: 60px;
+  width: 100%;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+     float: right;
+    color: #000;
+
+}
+
+.time-left {
+  float: left;
+      color: #000;
+
+}
+
+.time-center {
+  float: center;
+  color: #999;
+}
+
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  bohttps://www.w3schools.com/rder: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+ textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+</style>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'chat_s' %}">
+    <div class="containern1">
+        <h1>{{first_name}} {{last_name}}</h1>
+        <br/>
+</div>
+
+{% for d in data %}
+ {% if fr == d.fromid.id %}
+    <div class="containern">
+      <p class="time-right" align="right">{{d.message}} ({{d.date}})</p>
+        <br/>
+</div>
+{% else %}
+ <div class="containern">
+  <p class="time-left" align="left">{{d.message}} ({{d.date}})    </p>
+     <br>
+     <br>
+     <br/>
+</div>
+   {% endif %}
+    {% endfor %}
+
+    <!--<div class="containern ">-->
+        <input type="hidden" name="hid" value="{{fr}}"/>
+
+<!--</div>-->
+
+    <div class="container darker">
+   <textarea name="textarea" id="textareas" cols="20" rows="2" align="center-left" required class="form-control"></textarea>
+      <input type="submit" name="button" id="button" value="send"  class="registerbtn"/>
+</div>
+
+
+</form>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+    $("#textareas").focus();
+    });
+</script>
+
+</body>
+<!--</html>-->
+{% endblock %}

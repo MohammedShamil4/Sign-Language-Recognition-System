@@ -353,29 +353,12 @@ button:active {
 </style>
 <br>
 <br>
-<div class="loader"  style="text-align: center; font-size:xx-large; margin-top:3px"><b>
-  <span class="s">S</span>
-  <span class="t">T</span>
-  <span class="u">U</span>
-  <span class="d">D</span>
-  <span class="y">Y</span>
-  <span class="z">&nbsp;</span>
-  <span class="m">M</span>
-  <span class="a">A</span>
-  <span class="t">T</span>
-  <span class="e">E</span>
-  <span class="r">R</span>
-  <span class="i">I</span>
-  <span class="a">A</span>
-  <span class="l">L</span>
-  <span class="s">S</span>
-  <span class="d1">.</span>
-  <span class="d2">.</span>
-  <span class="d3">.</span>
-</b>
-</div>
+
+    <center>
+<h1 STYLE="margin-top:2%;"> VIEW CLASSWORK</h1><br><br>
+</center>
 <section class="contact">
-<form id="form1"  name="form1" method="post" action="stm">
+<form id="form1"  name="form1" method="post" action="class_wk">
     <center>
   <table  class="mytable">
    <tr><div align="center">
@@ -401,7 +384,7 @@ button:active {
     </tr>
     <tr>
       <td width="63"><div align="center">No.</div></td>
-      <td width="248"><div align="center">STUDY MATERIALS </div></td>
+      <td width="248"><div align="center">CLASS WORK </div></td>
         <td width="248"><div align="center">DESCRIPTION </div></td>
       <td width="278"><div align="center">SUBJECT</div></td>
       <td width="257">&nbsp;</td>
@@ -409,7 +392,7 @@ button:active {
       {% for i in val %}
     <tr>
       <td>&nbsp;{{ forloop.counter }}</td>
-      <td>&nbsp;{{i.materials}}</td>
+      <td>&nbsp;{{i.work}}</td>
         <td>{{i.description}}</td>
       <td>&nbsp;{{i.subject}}</td>
       <td><label>

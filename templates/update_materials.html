@@ -1,0 +1,85 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+{% extends 'staff_home.html' %}
+{% block body %}
+
+<style>
+    .mytable {
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+    }
+    .mytable td{
+      border: 1px solid #ccc;
+      padding:10px;
+    }
+    .mytable th{
+      border: 1px solid #ccc;
+      padding:10px;
+    }
+    </style>
+    <h1 class="heading"> <span>UPDATE</span> MATERIALS </h1>
+<section class="contact">
+
+
+<form id="form1" name="form1" method="post" action="{% url 'up_ms' %}" enctype="multipart/form-data">
+  <table class="mytable">
+
+    <tr>
+      <td>DESCRIPTION </td>
+      <td><input type="text" name="textfield" class="box" value="{{val.description}}"required/></td>
+    </tr>
+    <tr>
+      <td>CLASS</td>
+      <td>
+        <select  name="textfield2" class="box"   required>
+
+          <option value="1"  {% if val.classes == '1' %} selected {% endif %}>1st std</option>
+          <option value="2"  {% if val.classes == '2' %} selected {% endif %}>2nd std</option>
+          <option value="3"  {% if val.classes == '3' %} selected {% endif %}>3rd std</option>
+          <option value="4"  {% if val.classes == '4' %} selected {% endif %}>4th std</option>
+          <option value="5"  {% if val.classes == '5' %} selected {% endif %}>5th std</option>
+          <option value="6"  {% if val.classes == '6' %} selected {% endif %}>6th std</option>
+          <option value="7"  {% if val.classes == '7' %} selected {% endif %}>7th std</option>
+          <option value="8"  {% if val.classes == '8' %} selected {% endif %}>8th std</option>
+          <option value="9"  {% if val.classes == '9' %} selected {% endif %}>9th std</option>
+          <option value="10" {% if val.classes == '10' %} selected {% endif %}>10th std</option>
+          <option value="11" {% if val.classes == '11' %} selected {% endif %}>11th std</option>
+          <option value="12" {% if val.classes == '12' %} selected {% endif %}>12th std</option>
+      </select>&nbsp;&nbsp;
+
+    </tr>
+    <tr>
+      <td>SUBJECT</td>
+      <td>
+      <select  name="textfield3" class="box" required>
+          <option value="{{val.subject}}">{{val.subject}}</option>
+          <option value="ENGLISH">ENGLISH</option>
+          <option value="MALAYALAM">MALAYALAM</option>
+          <option value="HINDI">HINDI</option>
+          <option value="ARABIC">ARABIC</option>
+           <option value="MATHS">MATHS</option>
+          <option value="SOCIAL SCIENCE">SOCIAL SCIENCE</option>
+          <option value="SCIENCE">SCIENCE</option>
+          <option value="IT">IT</option>
+          <option value="EVS">EVS</option>
+      </select>&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="56" colspan="2"><div align="center">
+        <input name="UPLOAD"  class="btn btn-outline-default" type="submit" id="UPLOAD" value="UPDATE" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+
+  </section>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

@@ -1,26 +1,167 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+<!--<body>-->
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-  <table width="788" border="1" align="center">
-    <tr>
-      <td width="49"><div align="center">No.</div></td>
-      <td width="144"><div align="center">PARENT</div></td>
-      <td width="206"><div align="center">RATING</div></td>
-      <td width="361"><div align="center">REVIEW</div></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
-</form>
-</body>
-</html>
+{% extends 'parent_home.html' %}
+{% block body %}
+<style>
+
+.input {
+  max-width: 200px;
+  min-height: 55px;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  background: #e8e8e8;
+  box-shadow: 5px 5px 17px #c8c8c8,
+             -5px -5px 17px #ffffff;
+  border: none;
+  border-radius: 10px;
+  transition: all .5s;
+}
+
+.input:focus {
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 17px #c8c8c8,
+            inset -5px -5px 17px #ffffff;
+}
+button {
+ color: #090909;
+ padding: 0.7em 1.7em;
+ font-size: 18px;
+ border-radius: 0.5em;
+ background: #e8e8e8;
+ border: 1px solid #e8e8e8;
+ transition: all .3s;
+ box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+}
+button:active {
+ color: #666;
+ box-shadow: inset 4px 4px 12px #c5c5c5,
+             inset -4px -4px 12px #ffffff;
+}
+.container-wrapper {
+  background-color: #EDF0F9;
+}
+
+.container {
+  height: 10vh;
+}
+
+.rating-wrapper {
+  align-self: center;
+  box-shadow: 7px 7px 25px rgba(198, 206, 237, 0.7), -7px -7px 35px rgba(255, 255, 255, 0.7), inset 0px 0px 4px rgba(255, 255, 255, 0.9), inset 7px 7px 15px rgba(198, 206, 237, 0.8);
+  border-radius: 5rem;
+  display: inline-flex;
+  direction: rtl !important;
+  padding: 0.1rem 0.5rem;
+  margin-left: auto;
+}
+.rating-wrapper label {
+  color: #E1E6F6;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 3rem;
+  padding: 1rem 0.6rem;
+  transition: color 0.5s;
+}
+.rating-wrapper svg {
+  -webkit-text-fill-color: transparent;
+  -webkit-filter: drop-shadow 4px 1px 6px #c6ceed;
+  filter: drop-shadow(5px 1px 3px #c6ceed);
+}
+.rating-wrapper input {
+  height: 10%;
+  width: 10%;
+}
+.rating-wrapper input {
+  display: none;
+}
+.rating-wrapper label:hover,
+.rating-wrapper label:hover ~ label,
+.rating-wrapper input:checked ~ label {
+  color: #34AC9E;
+}
+.rating-wrapper label:hover,
+.rating-wrapper label:hover ~ label,
+.rating-wrapper input:checked ~ label {
+  color: #edf243;
+}
+#outset {
+width: 50%;
+border: 1.4rem solid;
+border-image: url("../static/image/border.jpg") 40;
+border-image-outset: 1.5;
+margin:2.1rem;
+}
+</style>
+<center>
+<h1 STYLE="margin-top:2%;"> SEND REVIEW</h1>
+<div style="margin-top:10%">
+  <div id ="outset">
+  <form action="sen_r" method="post" enctype="multipart/form-data">
+      <input type="text" class="input" value="choose a staff" disabled>&nbsp;
+    <select name="select" class="input">
+          {% for i in val %}
+         <option value="{{i.id}}">{{i.name}}</option>
+        {% endfor %}
+      </select>&nbsp;&nbsp;
+      <br><br>
+      <input type="text"  class="input" placeholder="review" name="review"  required >
+      <br><br>
+      <div class="container-wrapper" >
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center">
+
+      <!-- star rating -->
+      <div class="rating-wrapper" >
+
+        <!-- star 5 -->
+        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+        <label for="5-star-rating" class="star-rating">
+          <i class="fas fa-star d-inline-block"></i>
+        </label>
+
+         <!-- star 4 -->
+        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+        <label for="4-star-rating" class="star-rating star">
+          <i class="fas fa-star d-inline-block"></i>
+        </label>
+
+         <!-- star 3 -->
+        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+        <label for="3-star-rating" class="star-rating star">
+          <i class="fas fa-star d-inline-block"></i>
+        </label>
+
+        <!-- star 2 -->
+        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+        <label for="2-star-rating" class="star-rating star">
+          <i class="fas fa-star d-inline-block"></i>
+        </label>
+
+        <!-- star 1 -->
+        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+        <label for="1-star-rating" class="star-rating star">
+          <i class="fas fa-star d-inline-block"></i>
+        </label>
+
+       </div>
+
+    </div>
+  </div>
+</div>
+<br><br>
+<button><span class="fa fa-paper-plane" style="color:blue"></span>&nbsp;Submit</button>
+  </form>
+    </div>
+  </div>
+</center>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->
