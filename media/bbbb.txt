@@ -1,0 +1,94 @@
+
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+     
+        <div class="logo_name"></div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      
+      <li>
+        <a href="">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Homepage</span>
+        </a>
+         <span class="tooltip">Homepage</span>
+      </li>
+      <li>
+       <a href="vp">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Users</span>
+       </a>
+       <span class="tooltip">View parents</span>
+     </li>
+     <li>
+       <a href="mg_tp">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">File Manager</span>
+       </a>
+       <span class="tooltip">Manage tips</span>
+     </li>
+<li>
+       <a href="manage_s">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">File Manager</span>
+       </a>
+       <span class="tooltip">Manage study materials</span>
+     </li>
+<li>
+       <a href="">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">File Manager</span>
+       </a>
+       <span class="tooltip">Add class work</span>
+     </li>
+      <li>
+       <a href="">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Users</span>
+       </a>
+       <span class="tooltip">Student feedback</span>
+     </li>
+        <li>
+       <a href="">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Users</span>
+       </a>
+       <span class="tooltip">Chat</span>
+     </li>
+
+        <li>
+       <a href="">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Users</span>
+       </a>
+       <span class="tooltip">Rating</span>
+     </li>
+     <li>
+       <a href="/">
+         <i class='bx bx-log-out' ></i>
+         <span class="links_name">Log out</span>
+       </a>
+       <span class="tooltip">Log out</span>
+     </li>
+
+    </ul>
+  </div>
+  <section class="home-section"  style="background-image: url('../image/im3.jpg');">
+<br>
+<br>
+<br>
+<br>
+<br>
+
+      <center>{% block body %}{% endblock %}</center>
+
+
+  </section>
+
+  <script src="../script/script.js"></script>
+
+</body>
+</html>
